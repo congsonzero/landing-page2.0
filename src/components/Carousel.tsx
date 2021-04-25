@@ -1,9 +1,8 @@
-import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper } from "@material-ui/core";
-import { NavigateNext, SkipNext } from "@material-ui/icons";
+import { IconButton, Paper } from "@material-ui/core";
+import { NavigateBefore, NavigateNext } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-
+import { MouseEventHandler } from "react";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     custom1: {
@@ -15,6 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
     custom2: {
       backgroundColor: "#F7F9FA",
     },
+    navButton: {
+      color: theme.palette.primary.main,
+      backgroundColor: 'transparent',
+      padding: 0
+    },
+    navButtonIcon: {
+      fontSize: '48px'
+    }
   })
 );
 
@@ -37,7 +44,13 @@ export default function MobileImg() {
       swipe={true}
       navButtonsAlwaysVisible={true}
       indicators={false}
-      NextIcon={<SkipNext></SkipNext>}
+      NavButton={({onClick, className, style, next, prev}) => (
+          <IconButton onClick={onClick as MouseEventHandler} className={`${classes.navButton} ${className}`} style={style}>
+              {next && <NavigateNext className={classes.navButtonIcon} />}
+              {prev && <NavigateBefore className={classes.navButtonIcon} />}
+          </IconButton>
+        )
+      }
     >
       {items.map((item, i) => (
         <Item key={i} item={item} />
@@ -50,7 +63,7 @@ function Item(props: { item: { url: string | undefined } }) {
   const classes = useStyles();
   return (
     <Paper className={classes.custom2}>
-      <img className={classes.custom1} src={props.item.url}></img>
+      <img className={classes.custom1} src={props.item.url} alt=""></img>
       {/* <h2>{props.item.url}</h2>
             <p>{props.item.description}</p> */}
     </Paper>
