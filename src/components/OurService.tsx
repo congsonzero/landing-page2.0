@@ -2,10 +2,7 @@ import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import {
   Typography,
-  Link,
   Grid,
-  SvgIcon,
-  Paper,
   Button,
   Hidden,
 } from "@material-ui/core";
@@ -130,8 +127,8 @@ export default function OurService() {
       </div>
       <Hidden smDown>
         <div className={classes.flexw}>
-          <img className={classes.website} src="./Website.svg"></img>
-          <img className={classes.mobile} src="./Mobile.svg"></img>
+          <img className={classes.website} src="./Website.svg" alt="Website"></img>
+          <img className={classes.mobile} src="./Mobile.svg" alt="Mobile"></img>
         </div>
       </Hidden>
     </Grid>
