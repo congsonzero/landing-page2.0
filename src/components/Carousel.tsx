@@ -6,7 +6,13 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    custom: {
+    custom1: {
+      marginTop: 70.56,
+      marginBottom: 85.46,
+      width: "230px",
+      height: "243.54px",
+    },
+    custom2: {
       backgroundColor: "#F7F9FA",
     },
   })
@@ -26,7 +32,6 @@ export default function MobileImg() {
 
   return (
     <Carousel
-      className={classes.custom}
       animation="fade"
       autoPlay={false}
       swipe={true}
@@ -44,8 +49,8 @@ export default function MobileImg() {
 function Item(props: { item: { url: string | undefined } }) {
   const classes = useStyles();
   return (
-    <Paper className={classes.custom}>
-      <img src={props.item.url}></img>
+    <Paper className={classes.custom2}>
+      <img className={classes.custom1} src={props.item.url}></img>
       {/* <h2>{props.item.url}</h2>
             <p>{props.item.description}</p> */}
     </Paper>
