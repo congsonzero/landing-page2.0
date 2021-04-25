@@ -36,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SpacingGrid() {
+export default function Pricing() {
   const classes = useStyles();
   const preventDefault = (event: React.SyntheticEvent) =>
     event.preventDefault();
