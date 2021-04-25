@@ -5,7 +5,7 @@ import PriceCard from "./Shared/PriceCard";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
+    backgroundColor: "#F7F9FA",
   },
   paper: {
     height: 140,
@@ -38,11 +38,11 @@ const useStyles = makeStyles({
 
 export default function Pricing() {
   const classes = useStyles();
-  const preventDefault = (event: React.SyntheticEvent) =>
-    event.preventDefault();
+  // const preventDefault = (event: React.SyntheticEvent) =>
+  //   event.preventDefault();
 
   return (
-    <Grid>
+    <Grid className={classes.root}>
       <Typography className={classes.title} variant="h4">
         Simple pricing
       </Typography>
